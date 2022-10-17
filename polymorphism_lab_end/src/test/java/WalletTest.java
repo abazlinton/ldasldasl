@@ -16,21 +16,21 @@ public class WalletTest {
 
     @Test
     public void can_add_new_payment_method(){
-        wallet.addPaymentMethod("Nationwide CC", debitCard);
-        assertEquals(debitCard, wallet.getPaymentMethods().get("Nationwide CC"));
+        wallet.addPaymentMethod("Nationwide DC", debitCard);
+        assertEquals(debitCard, wallet.getPaymentMethods().get("Nationwide DC"));
     }
 
     @Test
     public void can_set_payment_method(){
-        wallet.addPaymentMethod("Nationwide CC", debitCard);
-        wallet.setSelectedPaymentMethod("Nationwide CC");
+        wallet.addPaymentMethod("Nationwide DC", debitCard);
+        wallet.setSelectedPaymentMethod("Nationwide DC");
         assertEquals(debitCard, wallet.getSelectedPaymentMethod());
     }
 
     @Test
     public void can_charge_payment_method(){
-        wallet.addPaymentMethod("Nationwide CC", debitCard);
-        wallet.setSelectedPaymentMethod("Nationwide CC");
+        wallet.addPaymentMethod("Nationwide DC", debitCard);
+        wallet.setSelectedPaymentMethod("Nationwide DC");
         wallet.pay(100);
         PaymentCard paymentCard = (PaymentCard) debitCard;
         assertEquals(100, paymentCard.getTransactions().get(0), 0.01);
